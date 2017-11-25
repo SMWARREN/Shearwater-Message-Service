@@ -1,0 +1,53 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Shearwater Microservice</title>
+        <meta name="description" content="Shearwater Microservice">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/4.0.2/bootstrap-material-design.css" integrity="sha256-c9OCpXgYepI8baar2x81YigAWryLIoQ2k0/7cCb1JAg=" crossorigin="anonymous" />
+
+    </head>
+    <body>
+        <div class="container" style="padding-top:20px !important;">
+        <h2>Message Specification </h2>
+        <hr>
+          <strong>The Message:</strong> <%= message %>
+
+        <hr>
+        <strong>Current Messages:</strong> There are <%
+          if(state.data.length > 0) { %>
+             <%= state.data.length %>
+             <% }else{ %>
+                0
+              <%
+             }
+             %>
+             Messages.
+        <ul>
+            <%
+          if(state.data.length > 0) {
+            state.data.forEach(function(msg, index) { %>
+                <br /><li><strong>Name: </strong> <%= msg.name %> <br /> <strong>Specification: </strong>
+                <input type="text" name="uSpec<%= index %>"  class="form-control" value="<%= msg.specification %>" />
+                <button onclick="updateMsg(<%= index %>)" class="btn btn-raised btn-primary"> Update</button> <button onclick="DeleteMsg(<%= index %>)" class="btn btn-raised btn-danger">X</button></li>
+            <% });
+              }
+              else{ %>
+                <p><a href="./messages/create/">Click Here To Generate Demo Message Specifications</a> <br /> Create Messages Below or Send POST Message Specifications to API Endpoints</p>
+                <% }%>
+        </ul>
+
+        <hr>
+      
+        <strong>Create a New Message Specification:</strong><br />
+        Name: <input type="text" name="cName" class="form-control" value=""><br />
+        Specification: <input type="text"  class="form-control"name="cSpec" value="">
+        <br />
+        <button onclick="CreateNewMsg();" class="btn btn-raised btn-success">Create New Message Specification</button>
+        </div>
+        <script src="./index.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "sherwater-api",
+  "version": "1.0.0",
+  "description": "API for The MessageSpecification MicroService",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Sean Warren <Sean.Warren@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  }
+}
