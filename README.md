@@ -6,6 +6,23 @@
 - Run npm install
 - Run npm start and the server will be Started. Vist http://localhost:8080 in the Browser.
 
+```// When a user does a POST Request to '/messages/create/' the user will be able
+// to post via the ENDPOINT or by using hte provided form
+  app.route('/messages/create/')
+  .get(apiController.listDemo)
+  .post(apiController.createMessageSpecification);
+
+// When a user does a POST request to '/messages/update/:id' with a specification
+// they will update a Message Specification.
+//
+// When a user does a POST request to '/messages/delete/:to/:from' with the
+// 'to' and 'from' parmeters the user will delete the Message Specification
+// in between those two points
+  app.route('/messages/update/:id').post(apiController.updateMessage);
+  app.route('/messages/delete/:to/:from').post(apiController.deleteMessage);
+};
+```
+
 # Shearwater-Message-Service Explanation
 
 When I saw this Excerise, I immediately thought of a Circular Linked List Data Structure this is because of the second provided example
